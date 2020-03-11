@@ -1,2 +1,4 @@
 logs/
 app/public/wp-config.php
+conf/
+./app/public/wp-config.php
