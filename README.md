@@ -16,8 +16,11 @@ För filmen https://www.imdb.com/title/tt3896198/ är id:t alltså tt3896198.
 VG
 
 - Om man sparar en film ska ditt plugin kolla om IMDb-id är ifyllt. Om så är fallet ska ditt plugin hämta information om filmen från t ex http://www.omdbapi.com/ , uppdatera titeln på posten och handlingen ("plot") ska sparas som content.
+
   - Utgivningsår och skådespelare sparas som postmeta och visas om användaren tittar på en detaljsida (single post).
+
 - Pluginet ska skapa sina datastrukturer (som cpt och liknande) när det aktiveras och städa efter sig när det avaktiveras.
+
 - Metaboxen (för IMDb-id) ska skapas i ditt plugin, alltså inte via tredjepartsplugin som t ex ACF.
 - Det ska finnas en egengjord filmlista (archive). Du måste visa att du förstår WPs arkitektur tillräckligt bra för att göra det på ett beständigt sätt.
   - I filmlistan ska de filmer som har ett IMDb-id ifyllt indikeras med en liten ikon eller liknande.
