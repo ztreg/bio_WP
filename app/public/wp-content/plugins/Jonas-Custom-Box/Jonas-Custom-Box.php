@@ -43,32 +43,50 @@ function Jonas_display_callback($post)
 
 function Jonas_save_meta_box($post_id)
 {
+
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ($parent_id = wp_is_post_revision($post_id)) {
         $post_id = $parent_id;
     }
+
     $fields = [
-        'movie_imdb-id',
-        'movie_actors',
-        'movie_director',
-        'movie_genres',
-        'movie_budget',
+        'movie_imdb-id' => '',
+        'movie_title'   => 'Title',
+        'movie_plot'    => 'Plot',
+        'movie_poster' => 'Poster',
+        'movie_actors' => 'Actors',
+        'movie_director' => 'Director',
+        'movie_released' => 'Released',
+        'movie_writer' => 'Writer',
+        'movie_genres' => 'Genre',
+        'movie_boxoffice' => 'BoxOffice',
     ];
 
+    $movieInfo = null;
 
+    /**
+     * Loop through all of our box-fields. If it's the ID. Then take that value and make a request to the api
+     * Add variables needed to make the request.
+     */
+    foreach( $fields as $fieldKey => $fieldValue) {
+        if ($fieldKey == 'movie_imdb-id') {
+            $apikey = '&apikey=c99cd65f';
+            $imdbID = $_POST[$fieldKey];
 
-    foreach ($fields as $field) {
-        if ($field == 'movie_imdb-id') {
-            $json = file_get_contents('http://www.omdbapi.com/tt0068646');
+            $json = file_get_contents("https://www.omdbapi.com/?i=$imdbID$apikey");
             $movieInfo = json_decode($json);
-     
-            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field] . count($movieInfo)));
+
+            /**
+             * Create/Update the database field that is "movie_imdb-id" with the data we gave it. (hopefully a imdb-id)
+             */
+            update_post_meta($post_id, $fieldKey, sanitize_text_field($imdbID));
         } else {
-            foreach ($movieInfo as $movieRow) {
-                if (array_key_exists($field, $_POST)) {
-                    update_post_meta($post_id, $field, sanitize_text_field($_POST[$field] . 'hej' . $movieRow));
-                    //update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
-                }
+            /**
+             * Create/Update each field to this specific post in the database with the values we get from the API request.
+             */
+            foreach ($movieInfo as $movieRow => $movieValue) {
+                
+                update_post_meta($post_id, $fieldKey, $movieInfo->$fieldValue);
             }
         }
     }

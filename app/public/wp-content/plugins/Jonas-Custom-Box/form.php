@@ -18,6 +18,27 @@
             value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_imdb-id', true ) ); ?>">
     </p>
     <p class="meta-options movie_field">
+        <label for="movie_title">Movie Title</label>
+        <input id=movie_title"
+            type="text"
+            name="movie_title"
+            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_title', true ) ); ?>">
+    </p>
+    <p class="meta-options movie_field">
+        <label for="movie_plot">Plot</label>
+        <input id="movie_plot"
+            type="text"
+            name="movie_plot"
+            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_plot', true ) ); ?>">
+    </p>
+    <p class="meta-options movie_field">
+        <label for="movie_poster">Poster</label>
+        <input id="movie_poster"
+            type="text"
+            name="movie_poster"
+            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_poster', true ) ); ?>">
+    </p>
+    <p class="meta-options movie_field">
         <label for="movie_actors">Actors</label>
         <input id="movie_actors"
             type="text"
@@ -32,6 +53,20 @@
             value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_director', true ) ); ?>">
     </p>
     <p class="meta-options movie_field">
+        <label for="movie_writer">Writer</label>
+        <input id="movie_writer"
+            type="text"
+            name="movie_writer"
+            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_writer', true ) ); ?>">
+    </p>
+    <p class="meta-options movie_field">
+        <label for="movie_released">Movie released</label>
+        <input id="movie_released"
+            type="text"
+            name="movie_released"
+            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_released', true ) ); ?>">
+    </p>
+    <p class="meta-options movie_field">
         <label for="movie_genres">Genres</label>
         <input id="movie_genres"
             type="text"
@@ -39,11 +74,11 @@
             value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_genres', true ) ); ?>">
     </p>
     <p class="meta-options movie_field">
-        <label for="movie_budget">Budget</label>
-        <input id="movie_budget"
-            type="number"
-            name="movie_budget"
-            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_budget', true ) ); ?>">
+        <label for="movie_boxoffice">Boxoffice</label>
+        <input id="movie_boxoffice"
+            type="text"
+            name="movie_boxoffice"
+            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_boxoffice', true ) ); ?>">
     </p>
 </div>
 </div>
