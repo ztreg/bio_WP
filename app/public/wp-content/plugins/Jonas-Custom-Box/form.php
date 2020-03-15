@@ -18,20 +18,6 @@
             value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_imdb-id', true ) ); ?>">
     </p>
     <p class="meta-options movie_field">
-        <label for="movie_title">Movie Title</label>
-        <input id=movie_title"
-            type="text"
-            name="movie_title"
-            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_title', true ) ); ?>">
-    </p>
-    <p class="meta-options movie_field">
-        <label for="movie_plot">Plot</label>
-        <input id="movie_plot"
-            type="text"
-            name="movie_plot"
-            value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'movie_plot', true ) ); ?>">
-    </p>
-    <p class="meta-options movie_field">
         <label for="movie_poster">Poster</label>
         <input id="movie_poster"
             type="text"
