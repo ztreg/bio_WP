@@ -9,18 +9,75 @@
  * Author URI: https://metabox.io
  * License: GPL2
  */
+function cptui_register_my_cpts_movie() {
 
+	/**
+	 * Post Type: Movies.
+	 */
 
-/**
- * $id	Meta box ID
- * $title	Title of the meta box.
- * $callback	The function that fills the box with the desired content. The function should echo its output.
- * $screen	The screen or screens on which to show the box (such as a post type, link, or comment).
- * $context	The context within the screen where the boxes should display. Post edit screen contexts include normal, side, and advanced. Default value: advanced.
- * $priority	The priority within the context where the boxes should show (high, low). Default value: high.
- * $callback_args	Data that should be set as the $args property of the box array (which is the second parameter passed to your callback). Default value: null.
- *  */
-//add_meta_box( $id, $title, $callback, $screen, $context, $priority, $callback_args);
+	$labels = [
+		"name" => __( "Movies", "understrap-child" ),
+		"singular_name" => __( "Movie", "understrap-child" ),
+		"menu_name" => __( "My Movies", "understrap-child" ),
+		"all_items" => __( "All Movies", "understrap-child" ),
+		"add_new" => __( "Add new", "understrap-child" ),
+		"add_new_item" => __( "Add new Movie", "understrap-child" ),
+		"edit_item" => __( "Edit Movie", "understrap-child" ),
+		"new_item" => __( "New Movie", "understrap-child" ),
+		"view_item" => __( "View Movie", "understrap-child" ),
+		"view_items" => __( "View Movies", "understrap-child" ),
+		"search_items" => __( "Search Movies", "understrap-child" ),
+		"not_found" => __( "No Movies found", "understrap-child" ),
+		"not_found_in_trash" => __( "No Movies found in trash", "understrap-child" ),
+		"parent" => __( "Parent Movie:", "understrap-child" ),
+		"featured_image" => __( "Featured image for this Movie", "understrap-child" ),
+		"set_featured_image" => __( "Set featured image for this Movie", "understrap-child" ),
+		"remove_featured_image" => __( "Remove featured image for this Movie", "understrap-child" ),
+		"use_featured_image" => __( "Use as featured image for this Movie", "understrap-child" ),
+		"archives" => __( "Movie archives", "understrap-child" ),
+		"insert_into_item" => __( "Insert into Movie", "understrap-child" ),
+		"uploaded_to_this_item" => __( "Upload to this Movie", "understrap-child" ),
+		"filter_items_list" => __( "Filter Movies list", "understrap-child" ),
+		"items_list_navigation" => __( "Movies list navigation", "understrap-child" ),
+		"items_list" => __( "Movies list", "understrap-child" ),
+		"attributes" => __( "Movies attributes", "understrap-child" ),
+		"name_admin_bar" => __( "Movie", "understrap-child" ),
+		"item_published" => __( "Movie published", "understrap-child" ),
+		"item_published_privately" => __( "Movie published privately.", "understrap-child" ),
+		"item_reverted_to_draft" => __( "Movie reverted to draft.", "understrap-child" ),
+		"item_scheduled" => __( "Movie scheduled", "understrap-child" ),
+		"item_updated" => __( "Movie updated.", "understrap-child" ),
+		"parent_item_colon" => __( "Parent Movie:", "understrap-child" ),
+	];
+
+	$args = [
+		"label" => __( "Movies", "understrap-child" ),
+		"labels" => $labels,
+		"description" => "Information about a movie",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => [ "slug" => "movie", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail" ],
+	];
+
+	register_post_type( "movie", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_movie' );
+
 
 function Jonas_register_meta_boxes()
 {
