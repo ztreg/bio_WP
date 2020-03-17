@@ -147,7 +147,7 @@ function Jonas_save_meta_box($post_id)
 			}
 		} else {
 			foreach ($fields as $fieldKey => $fieldValue) {
-				update_post_meta($post_id, $fieldKey, sanitize_text_field($_POST[$fieldKey]));
+				update_post_meta($post_id, $fieldKey,$_POST[$fieldKey]);
 			}
 		}
 		//wp_update_post([
