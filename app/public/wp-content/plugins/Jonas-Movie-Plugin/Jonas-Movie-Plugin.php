@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Plugin Name: Jonas Custom Box
+ * Plugin Name: Jonas Movie Plugin
  * Plugin URI: https://metabox.io
- * Description: A simple plugin for custom fields.
+ * Description: A _COMPLEX_ plugin for managing movies with IMDB APi.
  * Version: 1.0
- * Author: Meta Box
- * Author URI: https://metabox.io
+ * Author: Jonas
+ * Author URI: https://imdb.com
  * License: GPL2
  */
 function cptui_register_my_cpts_movie()
